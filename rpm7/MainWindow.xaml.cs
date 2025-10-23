@@ -20,5 +20,20 @@ namespace rpm7
         {
             InitializeComponent();
         }
+        Series series1 = new Series();
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            bool Set, Limit;
+            Set = int.TryParse(tbGetSet.Text, out int set);
+            Limit = int.TryParse(tbLimit.Text, out int limit);
+            if (Set == true && Limit == true)
+            {
+                for ( int i = set; i < limit; i++)
+                {
+                    lbSeries.Items.Add(series1.GetNext());
+                }
+            }
+        }
     }
+
 }

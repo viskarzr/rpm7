@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace rpm7
 {
+    /// <summary>
+    /// класс для ряда чисел 
+    /// </summary>
      class Series : ISeries
     {
         int start;
@@ -23,7 +26,7 @@ namespace rpm7
 
         public int GetNext()
         {
-            value += 2;
+            value *= 2;
             return value;
         }
         public void Reset()
