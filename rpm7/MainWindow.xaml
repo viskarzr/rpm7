@@ -21,7 +21,7 @@
             <Button x:Name="btnExit" Content="Выход" Margin="10,0,0,0"/>
         </StackPanel>
         <GroupBox Header="-- Прогрессия --" Grid.RowSpan="2">
-            <ListBox x:Name="lbSeries" />
+            <ListBox x:Name="lbSeries" SelectionMode="Multiple" />
         </GroupBox>
         <GroupBox Header="Работа с прогрессией" Grid.Column="1">
             <StackPanel Margin="0,10,0,0">
@@ -38,7 +38,7 @@
             <StackPanel Margin="0,10,0,0" Height="287">
                 <Button x:Name="btnClone" Content="Клонировать элемент" Margin="0,10,0,0" Width="250" Click="btnClone_Click" />
                 <Button x:Name="btnComp" Content="Сравнить элементы" Margin="0,10,0,0" Width="250"/>
-                <TextBox x:Name="tbRezComp" TextWrapping="Wrap" Width="250" Margin="0,20,0,0" Height="40"/>
+                <TextBox x:Name="tbRezComp" TextWrapping="Wrap" Width="250" Margin="0,20,0,0" Height="40" IsReadOnly="True"/>
             </StackPanel>
         </GroupBox>
     </Grid>
