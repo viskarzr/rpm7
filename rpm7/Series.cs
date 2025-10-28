@@ -43,8 +43,8 @@ namespace rpm7
         public object Clone()
         {
             Series s = new Series();
-            s.start = start;
-            s.value = value;
+            s.start = this.start;
+            s.value = this.value;
             return s;
         }
 

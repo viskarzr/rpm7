@@ -43,10 +43,14 @@ namespace rpm7
             if (Set == true && Limit == true)
             {
                 series1.SetStart(set);
-                for (int i = 0; i < limit; i++) // После +30 перестает работать
+                for (int i = 0; i < limit; i++) 
                 {
                     lbSeries.Items.Add(series1.GetNext());
                 }
+            }
+            else
+            {
+                MessageBox.Show("Введены некорректные значения!");
             }
         }
 
