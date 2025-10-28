@@ -9,14 +9,14 @@ namespace rpm7
     /// <summary>
     /// класс для ряда чисел 
     /// </summary>
-     class Series : ISeries
+     class Series : ISeries, ICloneable, IComparable
     {
-        int start;
-        int value;
+        public int start;
+        public int value;
         public Series()
         {
-            start = 0;
-            value = 0;
+            start = 1;
+            value = 1;
         }
 
         public int Next
@@ -38,6 +38,22 @@ namespace rpm7
         {
             start = x;
             value = start;
+        }
+
+        public object Clone()
+        {
+            Series s = new Series();
+            s.start = start;
+            s.value = value;
+            return s;
+        }
+
+        public int CompareTo(object obj)
+        {
+            Series ser =(Series)obj;
+            if (this.value > ser.value) return this.value-ser.value;
+            if (this.value < ser.value) return ser.value-this.value;
+            return 0;
         }
     }
 }

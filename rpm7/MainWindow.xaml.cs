@@ -21,19 +21,42 @@ namespace rpm7
             InitializeComponent();
         }
         Series series1 = new Series();
-        private void Button_Click(object sender, RoutedEventArgs e)
+        
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Практическая работа №7\r\nРабота с объектами через интерфейсы\r\nСоздать интерфейс – серия чисел (см. лекцию). Создать класс – геометрическая прогрессия.\r\n Класс должен включать конструктор. Сравнение производить по шагу прогрессии.\r\n Выполнила:\r\n Студентка гр.ИСП-31 Кирюшова В.");
+        }
+
+        private void btnClone_Click(object sender, RoutedEventArgs e)
+        {
+            Series ser = (Series)series1.Clone();
+            lbSeries.Items.Add(ser);
+        }
+
+        private void btnSer_Click(object sender, RoutedEventArgs e)
+        {
+            series1.Reset();
+            lbSeries.Items.Clear();
             bool Set, Limit;
             Set = int.TryParse(tbGetSet.Text, out int set);
             Limit = int.TryParse(tbLimit.Text, out int limit);
             if (Set == true && Limit == true)
             {
-                for ( int i = set; i < limit; i++)
+                series1.SetStart(set);
+                for (int i = 0; i < limit; i++) // После +30 перестает работать
                 {
                     lbSeries.Items.Add(series1.GetNext());
                 }
             }
         }
-    }
 
+        private void btnClean_Click(object sender, RoutedEventArgs e)
+        {
+            tbGetSet.Clear(); 
+            tbLimit.Clear(); 
+            tbRezComp.Clear(); 
+            lbSeries.Items.Clear ();
+            series1.Reset();
+        }
+    }
 }
