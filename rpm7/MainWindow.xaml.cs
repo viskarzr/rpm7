@@ -29,8 +29,18 @@ namespace rpm7
 
         private void btnClone_Click(object sender, RoutedEventArgs e)
         {
-            Series ser = (Series)series1.Clone();
-            lbSeries.Items.Add(ser);
+            if (lbSeries.SelectedItem != null)
+            {
+                Series selectedSeries = (Series)lbSeries.SelectedItem;
+                MessageBox.Show(selectedSeries.ToString());
+                //Series clonedSeries = (Series)selectedSeries.Clone();
+                //lbSeries.Items.Add(clonedSeries);
+
+            }
+            else
+            {
+                MessageBox.Show("Выберите элемент для клонирования из списка.");
+            }
         }
 
         private void btnSer_Click(object sender, RoutedEventArgs e)
@@ -45,7 +55,8 @@ namespace rpm7
                 series1.SetStart(set);
                 for (int i = 0; i < limit; i++) 
                 {
-                    lbSeries.Items.Add(series1.GetNext());
+                    lbSeries.Items.Add(series1);
+                    series1.value = series1.GetNext();
                 }
             }
             else
@@ -61,6 +72,28 @@ namespace rpm7
             tbRezComp.Clear(); 
             lbSeries.Items.Clear ();
             series1.Reset();
+        }
+
+        private void btnComp_Click(object sender, RoutedEventArgs e)
+        {
+            if (lbSeries.SelectedItems.Count == 2)
+            {
+                Series series1 = (Series)lbSeries.SelectedItems[0];
+                Series series2 = (Series)lbSeries.SelectedItems[1];
+
+                int result = series1.CompareTo(series2);
+
+                if (result > 0)
+                    tbRezComp.Text = "Первый элемент больше";
+                else if (result < 0)
+                    tbRezComp.Text = "Второй элемент больше";
+                else
+                    tbRezComp.Text = "Элементы равны";
+            }
+            else
+            {
+                MessageBox.Show("Выберите два элемента для сравнения.");
+            }
         }
     }
 }

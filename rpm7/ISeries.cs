@@ -15,5 +15,7 @@ namespace rpm7
         int GetNext();
         void Reset();
         void SetStart(int x);
+        
+        
     }
 }

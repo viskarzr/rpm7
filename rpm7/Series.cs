@@ -13,10 +13,12 @@ namespace rpm7
     {
         public int start;
         public int value;
+        public int step;
         public Series()
         {
             start = 1;
             value = 1;
+            step = 2;
         }
 
         public int Next
@@ -26,8 +28,8 @@ namespace rpm7
 
         public int GetNext()
         {
-            value *= 2;
-            return value;
+            //value *= step ;
+            return value*step;
         }
         public void Reset()
         {
@@ -45,6 +47,7 @@ namespace rpm7
             Series s = new Series();
             s.start = this.start;
             s.value = this.value;
+            s.step = this.step;
             return s;
         }
 
@@ -54,6 +57,11 @@ namespace rpm7
             if (this.value > ser.value) return this.value-ser.value;
             if (this.value < ser.value) return ser.value-this.value;
             return 0;
+        }
+
+        public override string ToString()
+        {
+            return value.ToString();
         }
     }
 }
