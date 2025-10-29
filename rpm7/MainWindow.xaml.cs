@@ -32,9 +32,8 @@ namespace rpm7
             if (lbSeries.SelectedItem != null)
             {
                 Series selectedSeries = (Series)lbSeries.SelectedItem;
-                MessageBox.Show(selectedSeries.ToString());
-                //Series clonedSeries = (Series)selectedSeries.Clone();
-                //lbSeries.Items.Add(clonedSeries);
+                Series clonedSeries = (Series)selectedSeries.Clone();
+                lbSeries.Items.Add(clonedSeries);
 
             }
             else
@@ -55,7 +54,8 @@ namespace rpm7
                 series1.SetStart(set);
                 for (int i = 0; i < limit; i++) 
                 {
-                    lbSeries.Items.Add(series1);
+                    Series current = (Series)series1.Clone();
+                    lbSeries.Items.Add(current);
                     series1.value = series1.GetNext();
                 }
             }
@@ -83,12 +83,8 @@ namespace rpm7
 
                 int result = series1.CompareTo(series2);
 
-                if (result > 0)
-                    tbRezComp.Text = "Первый элемент больше";
-                else if (result < 0)
-                    tbRezComp.Text = "Второй элемент больше";
-                else
-                    tbRezComp.Text = "Элементы равны";
+                if (result != 0) tbRezComp.Text = $"Разница между значениями равна {result}";
+                else tbRezComp.Text = "Значения равны";
             }
             else
             {
