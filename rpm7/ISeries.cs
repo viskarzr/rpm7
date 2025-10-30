@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace rpm7
 {
     /// <summary>
-    /// Интерфейс ряда чисел
+    /// Интерфейс для геометрической прогрессии
     /// </summary>
     internal interface ISeries
     {

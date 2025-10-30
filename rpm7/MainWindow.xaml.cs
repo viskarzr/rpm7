@@ -27,6 +27,9 @@ namespace rpm7
             MessageBox.Show("Практическая работа №7\r\nРабота с объектами через интерфейсы\r\nСоздать интерфейс – серия чисел (см. лекцию). Создать класс – геометрическая прогрессия.\r\n Класс должен включать конструктор. Сравнение производить по шагу прогрессии.\r\n Выполнила:\r\n Студентка гр.ИСП-31 Кирюшова В.");
         }
 
+        /// <summary>
+        /// Клонирование элемента прогрессии
+        /// </summary>
         private void btnClone_Click(object sender, RoutedEventArgs e)
         {
             if (lbSeries.SelectedItem != null)
@@ -42,6 +45,9 @@ namespace rpm7
             }
         }
 
+        /// <summary>
+        /// Расчёт геометрической прогрессии
+        /// </summary>
         private void btnSer_Click(object sender, RoutedEventArgs e)
         {
             series1.Reset();
@@ -65,15 +71,21 @@ namespace rpm7
             }
         }
 
+        /// <summary>
+        /// Очищение полей и списка
+        /// </summary>
         private void btnClean_Click(object sender, RoutedEventArgs e)
         {
             tbGetSet.Clear(); 
             tbLimit.Clear(); 
             tbRezComp.Clear(); 
-            lbSeries.Items.Clear ();
+            lbSeries.Items.Clear();
             series1.Reset();
         }
 
+        /// <summary>
+        /// Сравнение двух элементов прогрессии
+        /// </summary>
         private void btnComp_Click(object sender, RoutedEventArgs e)
         {
             if (lbSeries.SelectedItems.Count == 2)

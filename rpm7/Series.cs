@@ -14,6 +14,10 @@ namespace rpm7
         public int start;
         public int value;
         public int step;
+
+        /// <summary>
+        /// Конструктор
+        /// </summary>
         public Series()
         {
             start = 1;
@@ -26,22 +30,38 @@ namespace rpm7
             get {  return GetNext(); }
         }
 
+        /// <summary>
+        /// Расчет следующего числа прогрессии
+        /// </summary>
+        /// <returns> следующее число прогрессии </returns>
         public int GetNext()
         {
             //value *= step ;
             return value*step;
         }
+
+        /// <summary>
+        /// Обнуление расчёта
+        /// </summary>
         public void Reset()
         {
             value = start;
         }
 
+        /// <summary>
+        /// назначение стартового числа прогрессии
+        /// </summary>
+        /// <param name="x"> задаваемое число </param>
         public void SetStart(int x)
         {
             start = x;
             value = start;
         }
 
+        /// <summary>
+        /// полное клонирование элемента прогрессии
+        /// </summary>
+        /// <returns> клонированный экземпляр </returns>
         public object Clone()
         {
             Series s = new Series();
